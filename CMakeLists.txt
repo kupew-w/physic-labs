@@ -4,6 +4,7 @@ project(physic-labs)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+<<<<<<< HEAD
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include(FetchContent)
@@ -16,11 +17,25 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 file(GLOB executeF "*.cpp")
+=======
+>>>>>>> lab2(1)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/Calc.cpp
+<<<<<<< HEAD
     ${executeF}
+=======
+    src/LabFactory.cpp
+    src/fstream/csv/Fcsv.cpp
+    src/labs/LabStruct.cpp
+    src/labs/lab2\(1\)/Lab2.cpp
+    src/labs/lab2\(1\)/Lab2Exp.cpp
+    src/labs/lab2\(1\)/Lab2Calc.cpp
+    src/labs/lab2\(1\)/Lab2Error.cpp
+    src/tokens/LabToken.cpp
+    src/tokens/ExperimentToken.cpp
+>>>>>>> lab2(1)
 )
 
 # add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/SFML)

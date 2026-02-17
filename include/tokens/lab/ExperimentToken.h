@@ -10,15 +10,18 @@ namespace pl
 class ExperimentToken
 {
 private:
-    std::unordered_map<std::string, std::shared_ptr<std::string>> token;
+    std::unordered_map<std::string, std::string> token;
 
 public:
-    void setExpirementData(std::string& key, std::string& value);
-    const std::shared_ptr<std::string> operator[](const std::string&) const noexcept(false);
+    void setExperimentData(std::string key, std::string value);
+
+    void addExperimentData(std::shared_ptr<ExperimentToken>);
+
+    std::string operator[](const std::string&) const noexcept(false);
     int size() const;
 
-    std::unordered_map<std::string, std::shared_ptr<std::string>>::iterator begin();
-    std::unordered_map<std::string, std::shared_ptr<std::string>>::iterator end();
+    std::unordered_map<std::string, std::string>::iterator begin();
+    std::unordered_map<std::string, std::string>::iterator end();
 };
 
 };

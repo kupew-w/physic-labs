@@ -8,27 +8,32 @@
 
 class LabStruct
 {
-private:
-    std::vector<std::unique_ptr<ExperimentStruct>> experiments;
-    std::vector<std::unique_ptr<ExperimentStruct>> calculatedExpetimets;
+protected:
+    std::vector<std::shared_ptr<ExperimentStruct>> experiments;
+    std::shared_ptr<ExperimentStruct> calculate;
+    std::shared_ptr<ExperimentStruct> errors;
 
 public:
-    LabStruct(pl::LabToken&&);
+    LabStruct() = default;
     LabStruct(LabStruct&&) = default;
+    LabStruct& operator=(LabStruct&&) = default;
 
     LabStruct(const LabStruct&) = delete;
     LabStruct& operator=(const LabStruct&) = delete;
 
-    virtual ~LabStruct() = default;
+    ~LabStruct() = default;
 
-    void addExperiment(std::unique_ptr<ExperimentStruct>);
+    void addExperiment(std::shared_ptr<ExperimentStruct>);
+    void setCalc(std::shared_ptr<ExperimentStruct>);
+    void setError(std::shared_ptr<ExperimentStruct>);
 
-    ExperimentStruct* operator[](const int);
+    //ExperimentStruct* operator[](const int);
 
     int getQuantityExperiments();
 
-    virtual void calculateLab();
-    virtual void calculateError();
+    virtual void calculateLab() = 0;
+    virtual void calculateData() = 0;
+    virtual void calculateError() = 0;
 
-    virtual pl::LabToken getToken() const;
+    std::shared_ptr<pl::LabToken> getToken() const;
 };
