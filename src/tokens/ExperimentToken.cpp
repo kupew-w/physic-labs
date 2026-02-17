@@ -1,7 +1,7 @@
 #include <memory>
 #include <string>
 
-#include "tokens/ExperimentToken.h"
+#include "tokens/lab/ExperimentToken.h"
 
 void pl::ExperimentToken::setExperimentData(std::string key, std::string value)
 { 

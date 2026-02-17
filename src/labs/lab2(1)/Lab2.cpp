@@ -3,11 +3,10 @@
 #include "labs/lab2(1)/Lab2Calc.h"
 #include "labs/lab2(1)/Lab2Error.h"
 #include "labs/lab2(1)/Lab2Exp.h"
-#include "tokens/ExperimentToken.h"
-#include "tokens/LabToken.h"
+#include "tokens/lab/ExperimentToken.h"
+#include "tokens/lab/LabToken.h"
 #include <cmath>
 #include <cstdlib>
-#include <iostream>
 #include <memory>
 
 Lab2::Lab2(std::shared_ptr<pl::LabToken> token)

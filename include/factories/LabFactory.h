@@ -1,13 +1,10 @@
 #pragma once
 
 #include "labs/LabStruct.h"
-<<<<<<< HEAD:include/factories/LabFactory.h
 #include "tokens/lab/LabToken.h"
-=======
-#include "tokens/LabToken.h"
+
 #include <memory>
 
->>>>>>> lab2(1):include/LabFactory.h
 enum class LabType 
 {
     LAB1,   

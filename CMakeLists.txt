@@ -4,7 +4,6 @@ project(physic-labs)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-<<<<<<< HEAD
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include(FetchContent)
@@ -16,16 +15,9 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-file(GLOB executeF "*.cpp")
-=======
->>>>>>> lab2(1)
-
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/Calc.cpp
-<<<<<<< HEAD
-    ${executeF}
-=======
     src/LabFactory.cpp
     src/fstream/csv/Fcsv.cpp
     src/labs/LabStruct.cpp
@@ -35,13 +27,10 @@ add_executable(${PROJECT_NAME}
     src/labs/lab2\(1\)/Lab2Error.cpp
     src/tokens/LabToken.cpp
     src/tokens/ExperimentToken.cpp
->>>>>>> lab2(1)
 )
 
-# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/SFML)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics)
-# target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics SFML::Window SFML::System)
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

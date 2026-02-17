@@ -1,5 +1,5 @@
 #include "labs/lab2(1)/Lab2Exp.h"
-#include "tokens/ExperimentToken.h"
+#include "tokens/lab/ExperimentToken.h"
 #include <memory>
 #include <string>
 

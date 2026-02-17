@@ -1,6 +1,6 @@
 #include "labs/LabStruct.h"
 #include "labs/ExperimentStruct.h"
-#include "tokens/ExperimentToken.h"
+#include "tokens/lab/ExperimentToken.h"
 #include <memory>
 
 int LabStruct::getQuantityExperiments() 

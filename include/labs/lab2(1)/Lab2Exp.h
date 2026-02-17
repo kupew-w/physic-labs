@@ -1,7 +1,6 @@
 #pragma once
 
 #include "labs/ExperimentStruct.h"
-#include "tokens/ExperimentToken.h"
 #include <memory>
 
 class Lab2Exp : public ExperimentStruct

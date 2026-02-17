@@ -1,7 +1,7 @@
-#include "LabFactory.h"
+#include "factories/LabFactory.h"
 #include "fstream/csv/Fcsv.h"
 #include "labs/LabStruct.h"
-#include "tokens/LabToken.h"
+#include "tokens/lab/LabToken.h"
 #include <memory>
 #include <stdexcept>
 #include <iostream>

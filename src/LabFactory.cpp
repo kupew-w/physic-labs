@@ -1,7 +1,7 @@
 #include <memory>
 #include <stdexcept>
 
-#include "LabFactory.h"
+#include "factories/LabFactory.h"
 #include "labs/LabStruct.h"
 #include "labs/lab2(1)/Lab2.h"
 

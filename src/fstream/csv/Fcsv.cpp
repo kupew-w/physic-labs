@@ -1,6 +1,6 @@
 #include "fstream/csv/Fcsv.h"
-#include "tokens/ExperimentToken.h"
-#include "tokens/LabToken.h"
+#include "tokens/lab/ExperimentToken.h"
+#include "tokens/lab/LabToken.h"
 
 #include <filesystem>
 #include <fstream>
