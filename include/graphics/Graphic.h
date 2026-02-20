@@ -1,8 +1,8 @@
 #pragma once 
 
-#include "graphics/render/IRender.h"
+#include "graphics/IRender.h"
 #include "tokens/lab/LabToken.h"
-#include <utility>
+#include <memory>
  
 namespace pl
 {
@@ -10,21 +10,22 @@ namespace pl
 class Graphic
 {
 private:
-    IRender render;
+    std::unique_ptr<IRender> render;
 
 public:
-    Graphic(IRender&& render) : render(std::move(render))  {}
+    Graphic(std::unique_ptr<IRender> render) : render(std::move(render))  {}
 
-    void setRenderType(IRender&& render);
+    void setRenderType(std::unique_ptr<IRender>);
 
-    void drawGraphic();
+    virtual void drawGraphic() = 0;
 
-    void addData(LabToken&&);
+    virtual void addData(LabToken&&) = 0;
 
     Graphic(Graphic&&) = default;
-    Graphic(const Graphic&) = default;
+    Graphic& operator=(Graphic&&) = default;
 
-    ~Graphic() = default;
+    Graphic(const Graphic&) = delete;
+    Graphic& operator=(const Graphic&) = delete;
 };
 
 };
