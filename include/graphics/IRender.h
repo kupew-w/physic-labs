@@ -13,11 +13,14 @@ public:
     virtual void rectangle(float x1, float y1, float x2, float y2) = 0;
     virtual void text(float x, float y, std::string) = 0;
 
+    IRender() = default;
     IRender(IRender&&) = default;
     IRender& operator=(IRender&&) = default;
 
     IRender(const IRender&) = delete;
     IRender& operator=(const IRender&) = delete;
+
+    virtual ~IRender() = default;
 };
 
 }

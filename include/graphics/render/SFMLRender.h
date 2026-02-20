@@ -6,13 +6,14 @@
 namespace pl 
 {
 
-class SFMLRender : IRender
+class SFMLRender : public IRender
 {
 private:
     const sf::Window window;   
 
 public:
     explicit SFMLRender();
+    explicit SFMLRender(std::string name);
 
     void dot(float x, float y) override;
     void line(float x1, float y1, float x2, float y2) override;

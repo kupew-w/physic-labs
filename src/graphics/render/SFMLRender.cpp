@@ -1,9 +1,14 @@
 
 #include "graphics/render/SFMLRender.h"
+#include <SFML/Window/VideoMode.hpp>
 
 pl::SFMLRender::SFMLRender()
 {
+}
 
+pl::SFMLRender::SFMLRender(std::string name)
+{
+    window.create(sf::VideoMode({800, 600}), name);
 }
 
 void pl::SFMLRender::dot(float x, float y)
