@@ -17,15 +17,17 @@ public:
 
     void setRenderType(std::unique_ptr<IRender>);
 
-    virtual void drawGraphic() = 0;
+    virtual void draw() = 0;
 
-    virtual void addData(LabToken&&) = 0;
+    virtual void addData(LabToken&) = 0;
 
     Graphic(Graphic&&) = default;
     Graphic& operator=(Graphic&&) = default;
 
     Graphic(const Graphic&) = delete;
     Graphic& operator=(const Graphic&) = delete;
+
+    virtual ~Graphic() = default;
 };
 
 };

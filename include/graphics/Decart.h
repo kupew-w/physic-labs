@@ -3,12 +3,13 @@
 #include "graphics/Graphic.h"
 #include "graphics/IRender.h"
 #include "tokens/lab/LabToken.h"
+#include <memory>
 #include <vector>
 
 namespace pl 
 {
 
-class Decart : Graphic
+class Decart : public Graphic
 {
 private:
 
@@ -22,8 +23,11 @@ private:
     float xStep, yStep;
 
 public:
-    Decart(IRender&&);
-    Decart(LabToken&, IRender&&);
+    Decart(std::unique_ptr<IRender> render) : Graphic(std::move(render)) {}
+    Decart(LabToken&, std::string x, std::string y, std::unique_ptr<IRender>);
+    
+    void draw() override;
+    void addData(LabToken&) override;
 };
 
 }
