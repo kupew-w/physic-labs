@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics/Graphic.h"
+#include "graphics/IGraphic.h"
 #include "graphics/IRender.h"
 #include "tokens/lab/LabToken.h"
 #include <memory>
@@ -9,7 +9,7 @@
 namespace pl 
 {
 
-class Decart : public Graphic
+class Decart : public IGraphic
 {
 private:
 
@@ -23,11 +23,10 @@ private:
     float xStep, yStep;
 
 public:
-    Decart(std::unique_ptr<IRender> render) : Graphic(std::move(render)) {}
-    Decart(LabToken&, std::string x, std::string y, std::unique_ptr<IRender>);
+    Decart(LabToken&, std::string x, std::string y);
     
-    void draw() override;
-    void addData(LabToken&) override;
+    void draw(std::shared_ptr<IRender>) override;
+    void addData(LabToken&, std::string x, std::string y) override;
 };
 
 }

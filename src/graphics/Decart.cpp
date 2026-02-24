@@ -1,12 +1,10 @@
 #include "graphics/Decart.h"
-#include "graphics/Graphic.h"
 #include "graphics/IRender.h"
 #include "tokens/lab/ExperimentToken.h"
 #include "tokens/lab/LabToken.h"
 #include <memory>
-#include <utility>
 
-pl::Decart::Decart(LabToken& token, std::string x, std::string y, std::unique_ptr<IRender> render) : Graphic(std::move(render))
+pl::Decart::Decart(LabToken& token, std::string x, std::string y)
 {
     for(std::shared_ptr<ExperimentToken> expToken : token)
     {
@@ -14,10 +12,10 @@ pl::Decart::Decart(LabToken& token, std::string x, std::string y, std::unique_pt
     }
 }
 
-void pl::Decart::draw()
+void pl::Decart::draw(std::shared_ptr<IRender>)
 {
     
 }
 
-void pl::Decart::addData(pl::LabToken& token)
+void pl::Decart::addData(pl::LabToken& token, std::string x, std::string y)
 { }
