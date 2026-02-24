@@ -1,15 +1,10 @@
-#include "factories/LabFactory.h"
-#include "fstream/csv/Fcsv.h"
-#include "labs/LabStruct.h"
-#include "tokens/lab/LabToken.h"
+#include "graphics/Scene.h"
+#include "graphics/render/SFMLRender.h"
 #include <memory>
-#include <stdexcept>
-#include <iostream>
-#include <string>
 
 int main()
 {
-    for(int i = 1; i <= 3; ++i)
+    /*for(int i = 1; i <= 3; ++i)
     {
         pl::Fcsv reader;
 
@@ -33,5 +28,13 @@ int main()
         } catch (std::runtime_error& e) {
             std::cout << e.what() << std::endl;
         }
+    }*/
+
+    pl::Scene scene;
+    scene.render = std::shared_ptr<pl::SFMLRender>();
+    
+    while(scene.render->isOpen())
+    {
+
     }
 }

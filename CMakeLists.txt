@@ -27,6 +27,10 @@ add_executable(${PROJECT_NAME}
     src/labs/lab2\(1\)/Lab2Error.cpp
     src/tokens/LabToken.cpp
     src/tokens/ExperimentToken.cpp
+    src/graphics/render/SFMLRender.cpp
+    src/graphics/Decart.cpp
+    src/graphics/IGraphic.cpp
+    src/graphics/Scene.cpp
 )
 
 
