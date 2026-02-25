@@ -48,6 +48,16 @@ void pl::SFMLRender::text(float x, float y, std::string text, pl::Color c)
 
 }
 
+int pl::SFMLRender::width() const
+{
+    return window.getSize().x;
+}
+
+int pl::SFMLRender::height() const 
+{
+    return window.getSize().y;
+}
+
 sf::Color pl::SFMLRender::tsf(pl::Color c)
 {
     return sf::Color(c.r, c.g, c.b, c.a);
@@ -65,7 +75,7 @@ void pl::SFMLRender::update()
     window.display();
 }
 
-bool pl::SFMLRender::isOpen()
+bool pl::SFMLRender::isOpen() const
 {
     return window.isOpen();
 }

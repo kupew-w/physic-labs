@@ -24,8 +24,11 @@ public:
     void rectangle(float x1, float y1, float x2, float y2, pl::Color color) override;
     void text(float x, float y, std::string, pl::Color color) override;
 
+    int width() const override;
+    int height() const override;
+
     void update() override;
-    bool isOpen() override;
+    bool isOpen() const override;
 };
 
 }

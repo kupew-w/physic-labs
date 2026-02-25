@@ -20,8 +20,11 @@ public:
     virtual void rectangle(float x1, float y1, float x2, float y2, Color color) = 0;
     virtual void text(float x, float y, std::string, Color color) = 0;
 
+    virtual int width() const = 0;
+    virtual int height() const = 0;
+
     virtual void update() = 0;
-    virtual bool isOpen() = 0;
+    virtual bool isOpen() const = 0;
 
     IRender() = default;
     IRender(IRender&&) = default;

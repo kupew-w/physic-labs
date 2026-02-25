@@ -1,6 +1,9 @@
+#include "graphics/Decart.h"
 #include "graphics/Scene.h"
 #include "graphics/render/SFMLRender.h"
+#include "fstream/csv/Fcsv.h"
 #include <memory>
+#include <iostream>
 
 int main()
 {
@@ -29,12 +32,26 @@ int main()
             std::cout << e.what() << std::endl;
         }
     }*/
+    pl::Fcsv reader;
+
+    std::shared_ptr<pl::LabToken> token;
+    try {
+        token = reader.read("data/raw-data1.csv");
+    } catch (std::runtime_error& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
+    std::cout << "read successful\n";
+
 
     pl::Scene scene;
-    scene.render = std::shared_ptr<pl::SFMLRender>();
+    scene.render = std::make_shared<pl::SFMLRender>();
+    scene.add(std::make_unique<pl::Decart>(token, "U", "I"));
     
+    std::cout << "create window\n";
     while(scene.render->isOpen())
     {
-
+        scene.draw();
+        scene.render->update();
     }
 }

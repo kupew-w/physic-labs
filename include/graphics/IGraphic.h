@@ -16,7 +16,7 @@ public:
 
     virtual void draw(std::shared_ptr<IRender>) = 0;
 
-    virtual void addData(LabToken&, std::string x, std::string y) = 0;
+    virtual void addData(std::shared_ptr<LabToken>, std::string x, std::string y) = 0;
 
     IGraphic(IGraphic&&) = default;
     IGraphic& operator=(IGraphic&&) = default;

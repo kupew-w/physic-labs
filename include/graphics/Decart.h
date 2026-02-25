@@ -23,10 +23,10 @@ private:
     float xStep, yStep;
 
 public:
-    Decart(LabToken&, std::string x, std::string y);
+    Decart(std::shared_ptr<LabToken>, std::string x, std::string y);
     
     void draw(std::shared_ptr<IRender>) override;
-    void addData(LabToken&, std::string x, std::string y) override;
+    void addData(std::shared_ptr<LabToken>, std::string x, std::string y) override;
 };
 
 }
