@@ -10,9 +10,15 @@ void pl::Scene::add(std::unique_ptr<IGraphic> g)
 
 void pl::Scene::draw()
 {
-    for(auto& g : graphics)
+    while(render->isOpen())
     {
-        g->draw(render);
+        render->processEvent();
+        render->clear();
+
+        for(auto& g : graphics)
+        {
+            g->draw(render);
+        }
+        render->display();
     }
-    
 }

@@ -2,8 +2,11 @@
 #include "graphics/Scene.h"
 #include "graphics/render/SFMLRender.h"
 #include "fstream/csv/Fcsv.h"
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/VideoMode.hpp>
 #include <memory>
 #include <iostream>
+#include <optional>
 
 int main()
 {
@@ -43,15 +46,23 @@ int main()
     }
     std::cout << "read successful\n";
 
+    /*sf::RenderWindow window(sf::VideoMode({640,800}),"TEST");
+
+    while(window.isOpen())
+    {
+        while(const std::optional event = window.pollEvent())
+        {
+            if(event->is<sf::Event::Closed>())
+                window.close();
+        }
+        window.clear(sf::Color(100, 149, 237, 255));
+        window.display();
+    }*/
 
     pl::Scene scene;
     scene.render = std::make_shared<pl::SFMLRender>();
     scene.add(std::make_unique<pl::Decart>(token, "U", "I"));
     
     std::cout << "create window\n";
-    while(scene.render->isOpen())
-    {
-        scene.draw();
-        scene.render->update();
-    }
+    scene.draw();
 }

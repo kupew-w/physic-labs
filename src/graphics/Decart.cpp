@@ -18,30 +18,23 @@ void pl::Decart::draw(std::shared_ptr<IRender> r)
     int w = r->width();
     int h = r->height();
 
-    // Центр координат
     float cx = w / 2.0f;
     float cy = h / 2.0f;
 
-    // Осі
-    r->line(0, cy, w, cy, {0,0,0,255});   // X
-    r->line(cx, 0, cx, h, {0,0,0,255});   // Y
+    r->line(0, cy, w, cy, {255,0,0,255});   
+    r->line(cx, 0, cx, h, {0,255,0,255}); 
 
-    // Масштаб
     float scale = 50.0f;
 
-    // Малюємо sin(x)
-    for (float x = -cx; x < cx - 1; x += 1)
+    for (int i = 1; i < data.size(); ++i)
     {
-        float y1 = std::sin(x / scale) * scale;
-        float y2 = std::sin((x + 1) / scale) * scale;
+        float x1 = cx+data[i-1].x * scale;
+        float y1 = cy-data[i-1].y * scale;
 
-        r->line(
-            cx + x,
-            cy - y1,
-            cx + x + 1,
-            cy - y2,
-            {0,0,0,255}
-        );
+        float x2 = cx+data[i].x * scale;
+        float y2 = cy-data[i].y * scale;
+
+        r->line( x1, y1, x2, y2, {0,0,255,255});
     }
 }
 

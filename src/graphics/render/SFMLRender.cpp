@@ -2,7 +2,7 @@
 #include "graphics/render/SFMLRender.h"
 #include "graphics/IRender.h"
 #include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics/PrimitiveType.hpp>
+#include <SFML/Graphics/PrimitiveType.hpp> #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Vertex.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
@@ -63,15 +63,22 @@ sf::Color pl::SFMLRender::tsf(pl::Color c)
     return sf::Color(c.r, c.g, c.b, c.a);
 }
 
-void pl::SFMLRender::update()
+void pl::SFMLRender::processEvent()
 {
     while(const std::optional event = window.pollEvent())
     {
         if(event->is<sf::Event::Closed>())
             window.close();
     }
+}
 
+void pl::SFMLRender::clear()
+{
     window.clear();
+}
+
+void pl::SFMLRender::display()
+{
     window.display();
 }
 

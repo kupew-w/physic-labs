@@ -23,7 +23,9 @@ public:
     virtual int width() const = 0;
     virtual int height() const = 0;
 
-    virtual void update() = 0;
+    virtual void processEvent() = 0;
+    virtual void clear() = 0;
+    virtual void display() = 0;
     virtual bool isOpen() const = 0;
 
     IRender() = default;

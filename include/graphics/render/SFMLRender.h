@@ -27,7 +27,9 @@ public:
     int width() const override;
     int height() const override;
 
-    void update() override;
+    void processEvent() override;
+    void clear() override;
+    void display() override;
     bool isOpen() const override;
 };
 
