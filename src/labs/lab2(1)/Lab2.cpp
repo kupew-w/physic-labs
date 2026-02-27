@@ -16,16 +16,9 @@ Lab2::Lab2(std::shared_ptr<pl::LabToken> token)
         addExperiment(std::make_shared<Lab2Exp>(expToken));
     }
 
-    setCalc(std::make_shared<Lab2Calc>());
-    setError(std::make_shared<Lab2Error>());
+    addCalc(std::make_shared<Lab2Calc>());
+    addError(std::make_shared<Lab2Error>());
 }
-
-void Lab2::calculateError()
-{
-}
-
-void Lab2::calculateData()
-{ }
 
 void Lab2::calculateLab()
 {
@@ -39,7 +32,7 @@ void Lab2::calculateLab()
     }
 
     std::shared_ptr<Lab2Exp> expLab = std::static_pointer_cast<Lab2Exp>(experiments[0]);
-    std::shared_ptr<Lab2Calc> calcLab = std::static_pointer_cast<Lab2Calc>(calculate);
+    std::shared_ptr<Lab2Calc> calcLab = std::static_pointer_cast<Lab2Calc>(calculate[0]);
 
     calcLab->Ia = Calc::average(I);
     calcLab->Ua = Calc::average(U);
@@ -50,7 +43,7 @@ void Lab2::calculateLab()
     calcLab->Pi = calcLab->Ia*calcLab->Ia*calcLab->Ri;
     calcLab->Eff = (calcLab->P0-calcLab->Pi)/calcLab->P0;
 
-    std::shared_ptr<Lab2Error> errorLab = std::static_pointer_cast<Lab2Error>(errors);
+    std::shared_ptr<Lab2Error> errorLab = std::static_pointer_cast<Lab2Error>(errors[0]);
 
     errorLab->U = Calc::randomMiss(U);
     errorLab->I = Calc::randomMiss(I);

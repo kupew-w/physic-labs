@@ -62,14 +62,17 @@ void pl::Fcsv::write(const std::shared_ptr<pl::LabToken> labToken, const std::fi
     if(!file.is_open())
         throw std::runtime_error("Cannot open file: " + filePath.string());
 
-    for(const auto& line : *(*labToken)[0])
-        file << line.first << ",";
+    for(const auto& [k,v] : labToken->getMeta())
+        file << "# " << k << " = " << v << "\n";
+
+    for(const auto& [k,_] : *(*labToken)[0])
+        file << k << ",";
     file << "\n";
 
     for(int i = 0; i < labToken->size(); ++i) 
     {
-        for(const auto& line : *(*labToken)[i])
-            file << line.second << ",";
+        for(const auto& [_,v] : *(*labToken)[i])
+            file << v << ",";
         file << "\n";
     }
 }
