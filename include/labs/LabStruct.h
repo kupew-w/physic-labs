@@ -9,8 +9,9 @@
 class LabStruct
 {
 protected:
-    std::vector<std::shared_ptr<ExperimentStruct>> experiments;
-    std::vector<std::shared_ptr<ExperimentStruct>> calculate;
+    std::shared_ptr<ExperimentStruct> constants;
+    std::vector<std::shared_ptr<ExperimentStruct>> raw;
+    std::vector<std::shared_ptr<ExperimentStruct>> calc;
     std::vector<std::shared_ptr<ExperimentStruct>> errors;
 
 public:
@@ -24,10 +25,6 @@ public:
     ~LabStruct() = default;
 
     void addExperiment(std::shared_ptr<ExperimentStruct>);
-    void addCalc(std::shared_ptr<ExperimentStruct>);
-    void addError(std::shared_ptr<ExperimentStruct>);
-
-    //ExperimentStruct* operator[](const int);
 
     int getQuantityExperiments();
 

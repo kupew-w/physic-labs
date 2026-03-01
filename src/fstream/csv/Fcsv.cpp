@@ -50,6 +50,8 @@ std::shared_ptr<pl::LabToken> pl::Fcsv::read(const std::string& fileName) noexce
         out.addRow(expToken);
     }
 
+    file.close();
+
     return std::make_shared<LabToken>(out);
 }
 
@@ -75,4 +77,6 @@ void pl::Fcsv::write(const std::shared_ptr<pl::LabToken> labToken, const std::fi
             file << v << ",";
         file << "\n";
     }
+
+    file.close();
 }

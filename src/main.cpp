@@ -1,3 +1,4 @@
+#include "factories/LabFactory.h"
 #include "graphics/Decart.h"
 #include "graphics/Scene.h"
 #include "graphics/render/SFMLRender.h"
@@ -6,11 +7,10 @@
 #include <SFML/Window/VideoMode.hpp>
 #include <memory>
 #include <iostream>
-#include <optional>
 
 int main()
 {
-    /*for(int i = 1; i <= 3; ++i)
+    for(int i = 1; i <= 3; ++i)
     {
         pl::Fcsv reader;
 
@@ -21,7 +21,7 @@ int main()
             std::cout << e.what() << std::endl;
             return 1;
         }
-        std::cout << "read successful\n";
+        std::cout << "read successful " << i << std::endl;
 
         std::shared_ptr<LabStruct> lab = LabFactory::create(LabType::LAB2, token);
         std::cout << "create lab successful\n";
@@ -34,7 +34,7 @@ int main()
         } catch (std::runtime_error& e) {
             std::cout << e.what() << std::endl;
         }
-    }*/
+    }
     pl::Fcsv reader;
 
     std::shared_ptr<pl::LabToken> token;

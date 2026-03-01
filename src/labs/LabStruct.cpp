@@ -4,37 +4,24 @@
 #include <memory>
 
 int LabStruct::getQuantityExperiments() 
-{ return experiments.size(); }
+{ return raw.size(); }
 
 void LabStruct::addExperiment(std::shared_ptr<ExperimentStruct> e)
-{ experiments.push_back(e); }
-
-void LabStruct::addCalc(std::shared_ptr<ExperimentStruct> e)
-{ calculate.push_back(e); }
-
-void LabStruct::addError(std::shared_ptr<ExperimentStruct> e)
-{ errors.push_back(e); }
+{ raw.push_back(e); }
 
 std::shared_ptr<pl::LabToken> LabStruct::getToken() const
 {
     pl::LabToken out;
 
 
-    auto exp = experiments.begin();
-    auto calc = calculate.begin();
-    auto error = errors.begin();
-
-    while(exp != experiments.end())
+    for(int i = 0; i < raw.size(); ++i)
     {
         pl::ExperimentToken token; 
 
-        token.addExperimentData((*exp)->getToken());
-        token.addExperimentData((*calc)->getToken());
-        token.addExperimentData((*error)->getToken());
-
-        ++exp;
-        ++calc;
-        ++error;
+        token.addExperimentData(constants->getToken());
+        token.addExperimentData(raw[i]->getToken());
+        token.addExperimentData(calc[i]->getToken());
+        token.addExperimentData(errors[i]->getToken());
 
         out.addRow(token);
     }
