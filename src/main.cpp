@@ -35,6 +35,9 @@ int main()
             std::cout << e.what() << std::endl;
         }
     }
+
+
+
     pl::Fcsv reader;
 
     std::shared_ptr<pl::LabToken> token;
@@ -45,19 +48,6 @@ int main()
         return 1;
     }
     std::cout << "read successful\n";
-
-    /*sf::RenderWindow window(sf::VideoMode({640,800}),"TEST");
-
-    while(window.isOpen())
-    {
-        while(const std::optional event = window.pollEvent())
-        {
-            if(event->is<sf::Event::Closed>())
-                window.close();
-        }
-        window.clear(sf::Color(100, 149, 237, 255));
-        window.display();
-    }*/
 
     pl::Scene scene;
     scene.render = std::make_shared<pl::SFMLRender>();
