@@ -11,7 +11,7 @@ void LabStruct::addExperiment(std::shared_ptr<ExperimentStruct> e)
 
 std::shared_ptr<pl::LabToken> LabStruct::getToken() const
 {
-    pl::LabToken out;
+    std::shared_ptr<pl::LabToken> out;
 
 
     for(int i = 0; i < raw.size(); ++i)
@@ -23,8 +23,8 @@ std::shared_ptr<pl::LabToken> LabStruct::getToken() const
         token.addExperimentData(calc[i]->getToken());
         token.addExperimentData(errors[i]->getToken());
 
-        out.addRow(token);
+        out->addRow(token);
     }
 
-    return std::make_shared<pl::LabToken>(out);
+    return out;
 }
