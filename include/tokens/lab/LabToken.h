@@ -18,7 +18,7 @@ private:
 
 public:
     void addMeta(std::string k, std::string v);
-    void addRow(pl::ExperimentToken&);
+    void addRow(std::shared_ptr<pl::ExperimentToken>);
 
     std::shared_ptr<pl::ExperimentToken> operator[](const int i) const;
     int size() const;

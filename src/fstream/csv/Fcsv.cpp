@@ -13,11 +13,13 @@ std::shared_ptr<pl::LabToken> pl::Fcsv::read(const std::string& fileName) noexce
 {
     std::ifstream file(fileName);   
 
+
+
     if(!file.is_open())
         throw std::runtime_error("Cannot open file: " + fileName);
 
 
-    std::shared_ptr<pl::LabToken> out;
+    std::shared_ptr<pl::LabToken> out = std::make_shared<pl::LabToken>();
     std::string line;
 
     std::vector<std::string> keys;
@@ -35,16 +37,17 @@ std::shared_ptr<pl::LabToken> pl::Fcsv::read(const std::string& fileName) noexce
 
     while(std::getline(file, line))
     {
+
         if(line.empty() || line[0] == '#') continue;
 
-        pl::ExperimentToken expToken;
+        std::shared_ptr<pl::ExperimentToken> expToken = std::make_shared<pl::ExperimentToken>();
         std::istringstream ss(line);
         std::string cell;
 
         int i = 0;
         while(std::getline(ss, cell, ','))
         {
-            expToken.setExperimentData(keys[i], cell);
+            expToken->setExperimentData(keys[i], cell);
             ++i;
         }
         out->addRow(expToken);

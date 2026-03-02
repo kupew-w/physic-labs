@@ -24,7 +24,7 @@ void pl::Decart::draw(std::shared_ptr<IRender> r)
     r->line(0, cy, w, cy, {255,0,0,255});   
     r->line(cx, 0, cx, h, {0,255,0,255}); 
 
-    float scale = 50.0f;
+    float scale = 100.0f;
 
     for (int i = 1; i < data.size(); ++i)
     {

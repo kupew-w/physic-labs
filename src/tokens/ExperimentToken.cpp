@@ -23,7 +23,5 @@ std::unordered_map<std::string, std::string>::iterator pl::ExperimentToken::end(
 void pl::ExperimentToken::addExperimentData(std::shared_ptr<pl::ExperimentToken> token)
 {
     for(const auto& d : *token)
-    {
         this->token[d.first] = d.second;
-    }
 }
