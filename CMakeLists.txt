@@ -21,11 +21,19 @@ add_executable(${PROJECT_NAME}
     src/LabFactory.cpp
     src/fstream/csv/Fcsv.cpp
     src/labs/LabStruct.cpp
+
     src/labs/lab2\(1\)/Lab2.cpp
     src/labs/lab2\(1\)/Lab2Exp.cpp
     src/labs/lab2\(1\)/Lab2Calc.cpp
     src/labs/lab2\(1\)/Lab2Error.cpp
     src/labs/lab2\(1\)/Lab2Const.cpp
+
+    src/labs/lab1/Lab1.cpp
+    src/labs/lab1/Lab1Exp.cpp
+    src/labs/lab1/Lab1Calc.cpp
+    src/labs/lab1/Lab1Error.cpp
+    src/labs/lab1/Lab1Const.cpp
+
     src/tokens/LabToken.cpp
     src/tokens/ExperimentToken.cpp
     src/graphics/render/SFMLRender.cpp

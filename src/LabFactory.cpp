@@ -3,6 +3,7 @@
 
 #include "factories/LabFactory.h"
 #include "labs/LabStruct.h"
+#include "labs/lab1/Lab1.h"
 #include "labs/lab2(1)/Lab2.h"
 
 std::shared_ptr<LabStruct> LabFactory::create(const LabType type, std::shared_ptr<pl::LabToken> token)
@@ -10,7 +11,7 @@ std::shared_ptr<LabStruct> LabFactory::create(const LabType type, std::shared_pt
     switch (type)
     {
         case LabType::LAB1:
-            break;
+            return std::make_shared<Lab1>(token);
 
         case LabType::LAB2:
             return std::make_shared<Lab2>(token);

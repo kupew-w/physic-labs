@@ -5,7 +5,7 @@
 class Lab1Calc : public ExperimentStruct
 {
 public:
-    float;
+    float r = 0, E = 0;
 
     std::shared_ptr<pl::ExperimentToken> getToken() const override;
 };

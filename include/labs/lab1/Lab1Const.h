@@ -2,10 +2,10 @@
 
 #include "labs/ExperimentStruct.h"
 
-class Lab1Error : public ExperimentStruct
+class Lab1Const : public ExperimentStruct
 {
 public:
-    float x = 0, y = 0, r = 0, E = 0, phi = 0;
+    float phi = 0;
 
     std::shared_ptr<pl::ExperimentToken> getToken() const override;
 };
