@@ -9,6 +9,4 @@ public:
     explicit Lab2(std::shared_ptr<pl::LabToken>);
 
     void calculateLab() override;
-    void calculateData() override;
-    void calculateError() override;
 };

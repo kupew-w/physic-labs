@@ -2,7 +2,8 @@
 #include "graphics/render/SFMLRender.h"
 #include "graphics/IRender.h"
 #include <SFML/Graphics/Color.hpp>
-#include <SFML/Graphics/PrimitiveType.hpp> #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/PrimitiveType.hpp> 
+#include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Vertex.hpp>
 #include <SFML/Graphics/VertexArray.hpp>

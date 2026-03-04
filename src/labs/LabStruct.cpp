@@ -4,26 +4,27 @@
 #include <memory>
 
 int LabStruct::getQuantityExperiments() 
-{ return experiments.size(); }
+{ return raw.size(); }
 
 void LabStruct::addExperiment(std::shared_ptr<ExperimentStruct> e)
-{ experiments.push_back(e); }
-
-void LabStruct::setCalc(std::shared_ptr<ExperimentStruct> e)
-{ calculate = std::move(e); }
-
-void LabStruct::setError(std::shared_ptr<ExperimentStruct> e)
-{ errors = std::move(e); }
+{ raw.push_back(e); }
 
 std::shared_ptr<pl::LabToken> LabStruct::getToken() const
 {
-    pl::LabToken out;
+    std::shared_ptr<pl::LabToken> out = std::make_shared<pl::LabToken>();
 
-    pl::ExperimentToken token; 
 
-    token.addExperimentData(calculate->getToken());
-    token.addExperimentData(errors->getToken());
-    out.addRow(token);
+    for(int i = 0; i < raw.size(); ++i)
+    {
+        std::shared_ptr<pl::ExperimentToken> token = std::make_shared<pl::ExperimentToken>(); 
 
-    return std::make_shared<pl::LabToken>(out);
+        token->addExperimentData(constants->getToken());
+        token->addExperimentData(raw[i]->getToken());
+        token->addExperimentData(calc[i]->getToken());
+        token->addExperimentData(errors[i]->getToken());
+        
+        out->addRow(token);
+    }
+
+    return out;
 }

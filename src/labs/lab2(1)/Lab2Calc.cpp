@@ -7,7 +7,6 @@ std::shared_ptr<pl::ExperimentToken> Lab2Calc::getToken() const
     out.setExperimentData("Ia", std::to_string(Ia));
     out.setExperimentData("Ua", std::to_string(Ua));
     out.setExperimentData("Re", std::to_string(Re));
-    out.setExperimentData("Ri", std::to_string(Ri));
     out.setExperimentData("Pe", std::to_string(Pe));
     out.setExperimentData("Pi", std::to_string(Pi));
     out.setExperimentData("ShCr", std::to_string(ShCr));

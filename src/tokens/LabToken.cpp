@@ -5,8 +5,15 @@
 #include "tokens/lab/LabToken.h"
 #include "tokens/lab/ExperimentToken.h"
 
-void pl::LabToken::addRow(pl::ExperimentToken& exp)
-{ token.push_back(std::make_shared<pl::ExperimentToken>(exp)); }
+void pl::LabToken::addMeta(std::string k, std::string v)
+{
+    meta.emplace(std::move(k), std::move(v));
+}
+
+void pl::LabToken::addRow(std::shared_ptr<pl::ExperimentToken> exp)
+{ 
+    token.push_back(exp); 
+}
 
 std::shared_ptr<pl::ExperimentToken> pl::LabToken::operator[](const int i) const
 { 
@@ -19,6 +26,11 @@ std::shared_ptr<pl::ExperimentToken> pl::LabToken::operator[](const int i) const
 int pl::LabToken::size() const
 { return token.size(); }
 
+
+std::unordered_map<std::string, std::string> pl::LabToken::getMeta() const
+{
+    return meta;   
+}
 
 std::vector<std::shared_ptr<pl::ExperimentToken>>::iterator pl::LabToken::begin()
 { return token.begin();}
