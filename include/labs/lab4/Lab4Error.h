@@ -2,7 +2,7 @@
 
 #include "labs/ExperimentStruct.h"
 
-class Lab1Error : public ExperimentStruct
+class Lab4Error : public ExperimentStruct
 {
 public:
     float R = 0, X = 0, Nu = 0, v = 0;
